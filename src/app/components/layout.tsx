@@ -5,58 +5,77 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      {/* Sidebar */}
-      <aside className="bg-sky flex flex-col justify-between h-screen py-5">
-        <div className='px-7'>
-        <h1 className="text-primaryOcean text-2xl mb-10">AtmosChart</h1>
-        <nav>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '1rem' }}>
-              <Link href="/" className="flex gap-2">
-                <i className="bx bx-home {`font-semibold ${pathname === '/' ? 'text-blue-600' : '#B3E5FC'}`}"></i>
+    <div className="flex flex-col md:flex-row-reverse h-screen">
+      <main className="flex-1 bg-[url('/sky.jpg')] bg-cover px-6 py-10 overflow-y-auto">
+        {children}
+      </main>
+
+      <aside className="bg-sky flex md:flex-col items-center justify-around py-4 md:py-5 md:w-[250px] md:h-full md:relative fixed bottom-0 w-full">
+      <h1 className="hidden md:block text-primaryOcean text-2xl md:text-3xl my-14">AtmosChart</h1>
+  
+        <nav className="flex w-full md:flex-col md:justify-start md:gap-4">
+          <ul className="flex justify-around w-full md:block md:px-7 md:mt-6">
+            <li>
+              <Link href="/" passHref>
                 <p
-                  className={`text-primaryOcean hidden md:block font-semibold text-sm ${pathname === '/' ? 'text-blue-600' : '#B3E5FC'}`}
+                  className={`flex items-center gap-2 ${
+                    pathname === '/' ? 'text-blue-600' : 'text-[#B3E5FC]'
+                  }`}
                 >
-                  Home
+                  <i className="bx bx-home text-2xl"></i>
+                  <span
+                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                  >
+                    Home
+                  </span>
                 </p>
               </Link>
             </li>
-            <li style={{ marginBottom: '1rem' }}>
-              <Link href="/linechart" className="flex gap-2">
-                <i className="bx bx-line-chart" style={{ color: '#B3E5FC' }}></i>
+            <li>
+              <Link href="/linechart" passHref>
                 <p
-                  className={`hidden md:block font-semibold text-sm ${pathname === '/linechart' ? 'text-blue-600' : '#B3E5FC'}`}
+                  className={`flex items-center gap-2 ${
+                    pathname === '/linechart' ? 'text-blue-600' : 'text-[#B3E5FC]'
+                  }`}
                 >
-                  Line Chart
+                  <i className="bx bx-line-chart text-2xl"></i>
+                  <span
+                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                  >
+                    Line Chart
+                  </span>
                 </p>
               </Link>
             </li>
-            <li style={{ marginBottom: '1rem' }}>
-              <Link href="/histogram" className="flex gap-2">
-                <i className="bx bx-bar-chart-alt-2" style={{ color: '#B3E5FC' }}></i>
+            <li>
+              <Link href="/histogram" passHref>
                 <p
-                  className={`hidden md:block font-semibold text-sm ${pathname === '/histogram' ? 'text-blue-600' : '#B3E5FC'}`}
+                  className={`flex items-center gap-2 ${
+                    pathname === '/histogram' ? 'text-blue-600' : 'text-[#B3E5FC]'
+                  }`}
                 >
-                  Histogram
+                  <i className="bx bx-bar-chart-alt-2 text-2xl"></i>
+                  <span
+                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                  >
+                    Histogram
+                  </span>
                 </p>
               </Link>
             </li>
           </ul>
         </nav>
-        </div>
-        <h4 className="text-primaryOcean px-7 text-nowrap">Thanks for Visiting</h4>
-      </aside>
 
-      {/* Main content */}
-      <main className="bg-[url('/sky.jpg')] px-6 py-10" style={{ flex: 1, padding: '1rem', overflowY: 'auto' }}>
-        {children}
-      </main>
+        <div className="hidden md:block px-7 mt-auto">
+          <h4 className="text-primaryOcean text-nowrap text-lg">Thanks for Visiting</h4>
+        </div>
+      </aside>
     </div>
   );
 };
 
 export default Layout;
+

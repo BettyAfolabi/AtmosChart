@@ -22,7 +22,7 @@ const WeatherChart = () => {
     const fetchForecast = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=delft&appid=1dbda263f3c7d131922043bd42214a70&units=metric`
+          `https://api.openweathermap.org/data/2.5/forecast?q=lagos&appid=1dbda263f3c7d131922043bd42214a70&units=metric`
         );
 
         if (!response.ok) {
@@ -51,7 +51,7 @@ const WeatherChart = () => {
   }
 
   return (
-    <div className='my-8 mx-auto max-w-[800px]'>
+    <div style={{ width: '100%', maxWidth: '800px', margin: '2rem auto' }}>
       <h1 className='text-ocean font-bold py-5 text-base sm:text-xl mb-5'>Temperature and Humidity Over Time</h1>
       <LineChart width={800} height={400} data={chartData} margin={{ top: 5, right: 5, bottom: 20, left: 5 }}>
         <CartesianGrid stroke="#0369a1" />

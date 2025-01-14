@@ -26,7 +26,7 @@ const WeatherHistogram = () => {
     const fetchForecast = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=delft&appid=1dbda263f3c7d131922043bd42214a70&units=metric`
+          `https://api.openweathermap.org/data/2.5/forecast?q=lagos&appid=1dbda263f3c7d131922043bd42214a70&units=metric`
         );
 
         if (!response.ok) {

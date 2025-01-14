@@ -17,7 +17,7 @@ export default function Home() {
           <i className="bx bx-calendar text-4xl text-blue-500 mb-4"></i>
           <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">5-Day Forecast</h3>
           <p className="text-center text-gray-600 text-xs sm:text-sm">
-            Get a clear view of the temperature and humidity trends for Delft city.
+            Get a clear view of the temperature and humidity trends for Lagos city.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
       </div>
 
       <p className="mt-8 text-sm sm:text-lg text-gray-600 text-center max-w-2xl">
-       {` Whether you're planning your next trip to Delft or just curious about the weather, AtmosChart
+       {` Whether you're planning your next trip to Lagos or just curious about the weather, AtmosChart
         gives you the insights you need to stay prepared.`}
       </p>
     </div>
