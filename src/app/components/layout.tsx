@@ -13,8 +13,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {children}
       </main>
 
-      <aside className="bg-sky flex md:flex-col items-center justify-around py-4 md:py-5 md:w-[250px] md:h-full md:relative fixed bottom-0 w-full">
-      <h1 className="hidden md:block text-primaryOcean text-2xl md:text-3xl my-14">AtmosChart</h1>
+      <aside className="bg-sky flex md:flex-col items-center justify-around py-4 md:py-5 lg:w-[250px] md:h-full md:relative fixed bottom-0 w-full">
+      <h1 className="hidden md:block text-primaryOcean text-2xl md:text-3xl my-14 sm:my-2">AtmosChart</h1>
   
         <nav className="flex w-full md:flex-col md:justify-start md:gap-4">
           <ul className="flex justify-around w-full md:block md:px-7 md:mt-6">
@@ -25,9 +25,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     pathname === '/' ? 'text-blue-600' : 'text-[#B3E5FC]'
                   }`}
                 >
-                  <i className="bx bx-home text-2xl"></i>
+                  <i className="bx bx-home sm:text-2xl"></i>
                   <span
-                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                    className={`hidden md:inline-block text-sm sm:text-[15px] xl:text-lg font-semibold`}
                   >
                     Home
                   </span>
@@ -43,7 +43,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 >
                   <i className="bx bx-line-chart text-2xl"></i>
                   <span
-                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                    className={`hidden md:inline-block text-sm sm:text-[15px] xl:text-lg font-semibold`}
                   >
                     Line Chart
                   </span>
@@ -59,7 +59,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 >
                   <i className="bx bx-bar-chart-alt-2 text-2xl"></i>
                   <span
-                    className={`hidden md:inline-block text-sm md:text-lg font-semibold`}
+                    className={`hidden md:inline-block text-sm sm:text-[15px] xl:text-lg font-semibold`}
                   >
                     Histogram
                   </span>
