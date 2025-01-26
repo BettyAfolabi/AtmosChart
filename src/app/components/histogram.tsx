@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+import { useCity } from '../context/city'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -20,13 +21,14 @@ interface ForecastData {
 }
 
 const WeatherHistogram = () => {
+  const { city } = useCity(); 
   const [chartData, setChartData] = useState<any>(null);
 
   useEffect(() => {
     const fetchForecast = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=lagos&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
         );
 
         if (!response.ok) {
@@ -82,15 +84,21 @@ const WeatherHistogram = () => {
     };
 
     fetchForecast();
-  }, []);
+  }, [city]); 
 
   if (!chartData) {
-    return <div className='text-ocean font-bold text-sm sm:text-lg text-center flex flex-col items-center justify-center pt-10'>Loading histogram data...</div>;
+    return (
+      <div className="text-ocean font-bold text-sm sm:text-lg text-center flex flex-col items-center justify-center pt-10">
+        Loading histogram data...
+      </div>
+    );
   }
 
   return (
     <div style={{ width: '100%', maxWidth: '800px', margin: '2rem auto' }}>
-      <h1 className='text-ocean font-bold py-5 text-base sm:text-xl mb-5'>Temperature and Humidity Histogram</h1>
+      <h1 className="text-ocean font-bold py-5 text-base sm:text-xl mb-5">
+        Temperature and Humidity Histogram for {city}
+      </h1>
       <Bar
         data={chartData}
         options={{
@@ -121,9 +129,9 @@ const WeatherHistogram = () => {
           },
           elements: {
             bar: {
-              borderWidth: 0.5, 
+              borderWidth: 0.5,
             },
-          }
+          },
         }}
       />
     </div>

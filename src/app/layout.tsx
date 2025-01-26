@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import 'boxicons/css/boxicons.min.css';
 import "./globals.css";
 import Layout from "./components/layout";
+import { CityProvider } from '@/app/context/city'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Layout>
-         {children}
+          <CityProvider>{children}</CityProvider>
         </Layout>
       </body>
     </html>

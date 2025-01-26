@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function Home() {
@@ -39,9 +40,13 @@ export default function Home() {
       </div>
 
       <p className="mt-8 text-sm sm:text-lg text-gray-600 text-center max-w-2xl">
-       {` Whether you're planning your next trip to Lagos or just curious about the weather, AtmosChart
+       {` Whether you're planning your next trip or just curious about the weather, AtmosChart
         gives you the insights you need to stay prepared.`}
       </p>
+
+      <Link href="/linechart" className="mt-8 px-6 py-2 text-white bg-sky rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-blue-600">
+        Explore Weather Data
+      </Link>
     </div>
   );
 }
