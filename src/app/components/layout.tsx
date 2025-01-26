@@ -13,7 +13,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {children}
       </main>
 
-      <aside className="bg-sky flex md:flex-col items-center justify-around py-4 md:py-5 lg:w-[250px] md:h-full md:relative fixed bottom-0 w-full">
+      <aside className="bg-sky flex md:flex-col items-center justify-around py-4 md:py-5 md:w-[250px] md:h-full md:relative fixed bottom-0 w-full">
       <h1 className="hidden md:block text-primaryOcean text-2xl md:text-3xl my-14 sm:my-2">AtmosChart</h1>
   
         <nav className="flex w-full md:flex-col md:justify-start md:gap-4">

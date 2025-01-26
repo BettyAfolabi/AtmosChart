@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 pb-10 lg:pb-4">
       <h1 className="text-4xl font-bold text-ocean mb-8 text-center">
         Welcome to <span className="text-sky">AtmosChart</span>
       </h1>

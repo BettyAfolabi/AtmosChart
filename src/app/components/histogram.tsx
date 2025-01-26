@@ -25,11 +25,9 @@ const WeatherHistogram = () => {
   const [chartData, setChartData] = useState<any>(null);
 
   useEffect(() => {
-    const fetchForecast = async () => {
+    const fetchForecast = async (cityName: string)=> {
       try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
-        );
+        const response = await fetch(`/api/weather?city=${encodeURIComponent(cityName)}`);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
@@ -83,8 +81,10 @@ const WeatherHistogram = () => {
       }
     };
 
-    fetchForecast();
-  }, [city]); 
+    if (city) {
+      fetchForecast(city); 
+    }
+  }, [city]);
 
   if (!chartData) {
     return (
@@ -133,6 +133,8 @@ const WeatherHistogram = () => {
             },
           },
         }}
+        role="img"
+        aria-label="Histogram chart showing frequency of temperature and humidity ranges"
       />
     </div>
   );
