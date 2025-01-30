@@ -1,5 +1,7 @@
-import React from 'react'
-import WeatherChart from '../components/linechart'
+'use client'
+import dynamic from 'next/dynamic';
+
+const WeatherChart = dynamic(() => import('../components/linechart'), { ssr: false });
 
 export default function page() {
   return (

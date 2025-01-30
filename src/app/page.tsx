@@ -13,28 +13,28 @@ export default function Home() {
         over the next 5 days!
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="flex flex-col items-center justify-center bg-white shadow-lg p-6 rounded-lg transform transition-transform hover:translate-y-1 hover:scale-90">
-          <i className="bx bx-calendar text-4xl text-blue-500 mb-4"></i>
-          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">5-Day Forecast</h3>
-          <p className="text-center text-gray-600 text-xs sm:text-sm">
-            Get a clear view of the temperature and humidity trends for Lagos city.
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center bg-white transform transition-transform hover:translate-y-1 hover:scale-90 shadow-lg p-6 rounded-lg">
+      <div className="my-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center justify-center bg-white transform transition-transform hover:translate-y-1 hover:scale-90 max-w-[400px] shadow-lg p-6 rounded-lg">
           <i className="bx bx-line-chart text-4xl text-blue-500 mb-4"></i>
-          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Interactive Line Chart</h3>
+          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2 text-center">Interactive Line Chart</h3>
           <p className="text-center text-gray-600 text-xs sm:text-sm">
             Visualize temperature changes over the next 5 days with an interactive line chart.
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center bg-white shadow-lg p-6 rounded-lg transform transition-transform hover:translate-y-1 hover:scale-90">
+        <div className="flex flex-col items-center justify-center bg-white shadow-lg p-6 rounded-lg transform transition-transform hover:translate-y-1 hover:scale-90 max-w-[400px]">
           <i className="bx bx-bar-chart-alt-2 text-4xl text-blue-500 mb-4"></i>
-          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Humidity Histogram</h3>
+          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2 text-center">Humidity Histogram</h3>
           <p className="text-center text-gray-600 text-xs sm:text-sm">
             See the humidity levels at different times of the day through a detailed histogram.
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center justify-center bg-white shadow-lg p-6 rounded-lg transform transition-transform hover:translate-y-1 hover:scale-90 max-w-[400px]">
+          <i className="bx bx-calendar text-4xl text-blue-500 mb-4"></i>
+          <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2 text-center">5-Day Forecast</h3>
+          <p className="text-center text-gray-600 text-xs sm:text-sm">
+            Get a detailed forecast for your city with the latest temperature and humidity information.
           </p>
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function Home() {
         gives you the insights you need to stay prepared.`}
       </p>
 
-      <Link href="/linechart" className="mt-8 px-6 py-2 text-white bg-sky rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-blue-600">
+      <Link href="/linechart" className="mt-8 px-6 py-2 text-white bg-accent rounded-lg hover:bg-sky focus:outline-none focus:ring-2 focus:ring-blue-600">
         Explore Weather Data
       </Link>
     </div>

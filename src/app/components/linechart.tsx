@@ -23,11 +23,24 @@ const WeatherChart = () => {
   const [inputCity, setInputCity] = useState<string>(''); 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [cache, setCache] = useState<{ [key: string]: ForecastData }>({});
+
 
   const fetchForecast =  async (cityName: string) => {
     try {
       setLoading(true);
       setError(null);
+
+      if (cache[cityName]) {
+        const formattedDataFromAPI = cache[cityName].list.map((item) => ({
+          date: item.dt_txt,
+          temp: item.main.temp,
+          humidity: item.main.humidity,
+        }));
+  
+        setChartData(formattedDataFromAPI);
+        return;
+      }
 
       const response = await fetch(`/api/weather?city=${encodeURIComponent(cityName)}`);
 
@@ -45,6 +58,7 @@ const WeatherChart = () => {
 
       setChartData(formattedData);
       setCity(cityName);
+      setCache((prevCache) => ({ ...prevCache, [cityName]: data }));
     } catch (error) {
       setError((error as Error).message || 'Failed to fetch forecast data.');
       setChartData(null);
@@ -73,11 +87,16 @@ const WeatherChart = () => {
           value={inputCity}
           onChange={(e) => setInputCity(e.target.value)}
           placeholder='Enter a City name'
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
           className="md:basis-1/2 border border-accent rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300 text-ocean placeholder:text-ocean"
         />
         <button
           onClick={handleSearch}
-          className="md:basis-1/2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-accent "
+          className="md:basis-1/2 bg-accent text-white px-4 py-2 rounded-lg hover:bg-sky"
         >
           Search
         </button>

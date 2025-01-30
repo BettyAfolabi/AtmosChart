@@ -1,5 +1,7 @@
-import React from 'react'
-import WeatherHistogram from '../components/histogram'
+'use client'
+import dynamic from 'next/dynamic';
+
+const WeatherHistogram = dynamic(() => import('../components/histogram'), { ssr: false });
 
 export default function page() {
   return (
