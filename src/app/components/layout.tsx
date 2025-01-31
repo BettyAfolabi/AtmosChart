@@ -1,13 +1,47 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Head from 'next/head';
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname();
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-10207137587', {
+        page_path: pathname,
+      });
+    }
+  }, [pathname]);
+
   return (
+    <>
+    <Head>
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=G-10207137587`} 
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-10207137587'); 
+          `,
+        }}
+      ></script>
+    </Head>
     <div className="flex flex-col md:flex-row-reverse h-screen">
       <main className="flex-1 bg-[url('/sky.webp')] bg-cover px-6 py-10 overflow-y-auto">
         {children}
@@ -74,6 +108,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
       </aside>
     </div>
+    </>
   );
 };
 
