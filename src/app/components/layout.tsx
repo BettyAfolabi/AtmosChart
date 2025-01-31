@@ -18,7 +18,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', 'G-10207137587', {
+      window.gtag('config', 'G-9KCR6VL7QC', {
         page_path: pathname,
       });
     }
@@ -29,7 +29,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <Head>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=G-10207137587`} 
+        src={`https://www.googletagmanager.com/gtag/js?id=G-9KCR6VL7QC`} 
       ></script>
       <script
         dangerouslySetInnerHTML={{
@@ -37,7 +37,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-10207137587'); 
+            gtag('config', 'G-9KCR6VL7QC'); 
           `,
         }}
       ></script>
