@@ -1,5 +1,5 @@
 # Hi, This is AtmosChart
-    Where you can view the trends of the temperature and humidity conditions in Lagos City
+    Where you can view the forecast trends of the temperature and humidity conditions of any City
 
 ## Getting Started
 
